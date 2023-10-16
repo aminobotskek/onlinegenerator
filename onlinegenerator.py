@@ -6,6 +6,8 @@ class Client():
 	def random_name(self,amount:int=2,gender:str=None):
 		if gender:return requests.get(f"{self.api}/name?amount={amount}&gender={gender}",headers=self.headers).json()
 		else:return requests.get(f"{self.api}/name?amount={amount}&gender=",headers=self.headers).json()
+	def random_lorem(self,amount,length):
+		return requests.get(f"{self.api}/lorem?amount={amount}&length={length}",headers=self.headers).json()
 	def random_password(self,amount,length):
 		return requests.get(f"{self.api}/password?amount={amount}&length={length}",headers=self.headers).json()
 	def random_uid(self,amount):
